@@ -4,9 +4,7 @@ import com.example.demo.entity.Book;
 import com.example.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,15 +15,17 @@ public class BookController {
     @GetMapping("/getBooks")
     @ResponseBody
     public List<Book> getBooks(){
-        return bookService.getAllBooks();
+        List<Book> bookList=bookService.getAllBooks();
+        return bookList;
     }
-    @RequestMapping("/getBookById")
+    @GetMapping("/getBookById")
     @ResponseBody
-    public Book getBookById(){
-        return bookService.getBookById(2);
+    public Book getBookById(@RequestBody Integer bookId){
+        Book book=bookService.getBookById(bookId);
+        return book;
     }
 
-    @RequestMapping("/insertBook")
+    @PutMapping("/insertBook")
     @ResponseBody
     public Integer insertBook(){
         Book book=new Book();
@@ -36,10 +36,10 @@ public class BookController {
         bookService.insertBook(book);
         return 1;
     }
-    @GetMapping("/deleteBookById")
+    @DeleteMapping("/deleteBookById")
     @ResponseBody
-    public Integer deleteBookById(){
-         bookService.deleteBookById(4);
+    public Integer deleteBookById(@RequestBody Integer bookId){
+         bookService.deleteBookById(bookId);
          return 1;
     }
 }
