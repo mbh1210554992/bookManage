@@ -11,6 +11,12 @@
         <result column="book_status" property="bookStatus"/>
     </resultMap>
 
+    <select id="getAllBooks" resultMap="Book">
+        select book_id,book_name,book_isbn,
+                book_author,book_status
+        from book
+    </select>
+
     <select id="getBookById" resultMap="Book">
         select book_id,book_name,book_isbn,
                 book_author,book_status
@@ -26,5 +32,9 @@
         (#{bookName},#{bookIsbn},#{bookAuthor},#{bookStatus})
 
     </insert>
+
+    <delete id="deleteBookById">
+        delete from book where book_id=#{bookId}
+    </delete>
 
 </mapper>
