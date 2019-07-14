@@ -5,7 +5,7 @@ public class Book {
     private String  bookName;
     private String  bookIsbn;
     private String  bookAuthor;
-    private String  bookStatus;
+    private Integer  bookStatus;
 
     public Integer getBookId() {
         return bookId;
@@ -39,11 +39,11 @@ public class Book {
         this.bookAuthor = bookAuthor;
     }
 
-    public String getBookStatus() {
+    public Integer getBookStatus() {
         return bookStatus;
     }
 
-    public void setBookStatus(String bookStatus) {
+    public void setBookStatus(Integer bookStatus) {
         this.bookStatus = bookStatus;
     }
 

@@ -32,7 +32,7 @@ public class BookController {
         book.setBookName("三国演义");
         book.setBookAuthor("罗贯中");
         book.setBookIsbn("54541321");
-        book.setBookStatus("未借");
+        book.setBookStatus(0);
         bookService.insertBook(book);
         return 1;
     }
