@@ -1,13 +1,13 @@
 package com.example.demo.dao;
 
-import com.example.demo.entity.Student;
+import com.example.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface StudentDao {
-     List<Student> getStudent();
+public interface UserDao {
+     List<User> getUsers();
 
 
 }

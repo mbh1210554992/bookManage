@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Student;
-import com.example.demo.service.StudentService;
+import com.example.demo.entity.User;
+import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,17 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class FirstController {
+public class UserController {
     @Autowired
-    private StudentService studentService;
+    private UserService userService;
 
-    @GetMapping("/hello")
+    @GetMapping("/getUsers")
     @ResponseBody
-    public List<Student> hello(){
-        List<Student> list=studentService.getStudent();
-        for(Student student:list){
-            System.out.println(student);
-        }
+    public List<User> getUsers(){
+        List<User> list= userService.getStudent();
+
         return list;
     }
 
