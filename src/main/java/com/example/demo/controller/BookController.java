@@ -36,9 +36,9 @@ public class BookController {
         bookService.insertBook(book);
         return 1;
     }
-    @DeleteMapping("/deleteBookById")
+    @RequestMapping("/deleteBookById")
     @ResponseBody
-    public Integer deleteBookById(@RequestBody Integer bookId){
+    public Integer deleteBookById(@RequestParam() Integer bookId){
          bookService.deleteBookById(bookId);
          return 1;
     }

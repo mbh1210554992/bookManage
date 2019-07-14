@@ -17,7 +17,7 @@ public class UserController {
     @GetMapping("/getUsers")
     @ResponseBody
     public List<User> getUsers(){
-        List<User> list= userService.getStudent();
+        List<User> list= userService.getUsers();
 
         return list;
     }
