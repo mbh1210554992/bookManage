@@ -6,6 +6,33 @@ public class Book {
     private String  bookIsbn;
     private String  bookAuthor;
     private Integer  bookStatus;
+    private String  bookInfo;
+    private String  bookPublisher;
+    private String bookCreateTime;
+
+    public String getBookInfo() {
+        return bookInfo;
+    }
+
+    public void setBookInfo(String bookInfo) {
+        this.bookInfo = bookInfo;
+    }
+
+    public String getBookPublisher() {
+        return bookPublisher;
+    }
+
+    public void setBookPublisher(String bookPublisher) {
+        this.bookPublisher = bookPublisher;
+    }
+
+    public String getBookCreateTime() {
+        return bookCreateTime;
+    }
+
+    public void setBookCreateTime(String bookCreateTime) {
+        this.bookCreateTime = bookCreateTime;
+    }
 
     public Integer getBookId() {
         return bookId;

@@ -14,7 +14,8 @@ public class BookController {
     private BookService bookService;
     @GetMapping("/getBooks")
     @ResponseBody
-    public List<Book> getBooks(String bookName){
+    public List<Book> getBooks(@RequestBody String bookName){
+
         List<Book> bookList=bookService.getAllBooks(bookName);
         return bookList;
     }
@@ -25,14 +26,10 @@ public class BookController {
         return book;
     }
 
-    @PutMapping("/insertBook")
+    @PostMapping("/addBook")
     @ResponseBody
-    public Integer insertBook(){
-        Book book=new Book();
-        book.setBookName("三国演义");
-        book.setBookAuthor("罗贯中");
-        book.setBookIsbn("54541321");
-        book.setBookStatus(0);
+    public Integer insertBook(@RequestBody Book book){
+        System.out.println("插入图书");
         bookService.insertBook(book);
         return 1;
     }

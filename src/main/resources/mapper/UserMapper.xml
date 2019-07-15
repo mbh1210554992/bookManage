@@ -13,6 +13,7 @@
         <result column="user_address" property="address"/>
         <result column="user_phone" property="phone"/>
         <result column="user_count" property="count"/>
+        <result column="user_password" property="password"/>
     </resultMap>
 
     <select id="getUsers" resultMap="user">
@@ -23,7 +24,8 @@
       user_age,
       user_address,
       user_phone,
-      user_count
+      user_count,
+        user_password
       from user
     </select>
 
