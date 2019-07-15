@@ -14,7 +14,7 @@ public class BookController {
     private BookService bookService;
     @GetMapping("/getBooks")
     @ResponseBody
-    public List<Book> getBooks(@RequestBody String bookName){
+    public List<Book> getBooks( String bookName){
 
         List<Book> bookList=bookService.getAllBooks(bookName);
         return bookList;
