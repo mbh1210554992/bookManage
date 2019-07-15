@@ -11,10 +11,19 @@
         <result column="book_status" property="bookStatus"/>
     </resultMap>
 
+    <sql id="whereQuery">
+        <where>
+            <if test="bookName!=null and bookName!=''">
+                book_name like concat("%",#{bookName},"%")
+            </if>
+        </where>
+    </sql>
+
     <select id="getAllBooks" resultMap="Book">
         select book_id,book_name,book_isbn,
                 book_author,book_status
         from book
+        <include refid="whereQuery"/>
     </select>
 
     <select id="getBookById" resultMap="Book">

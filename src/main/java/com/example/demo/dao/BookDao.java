@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface BookDao {
-    List<Book> getAllBooks();
+    List<Book> getAllBooks(@Param("bookName")String bookName);
     Book getBookById(@Param("bookId") Integer bookId);
     Integer insertBook( Book book);
     Integer deleteBookById(@Param("bookId") Integer bookId);

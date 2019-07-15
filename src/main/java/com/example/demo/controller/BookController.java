@@ -14,8 +14,8 @@ public class BookController {
     private BookService bookService;
     @GetMapping("/getBooks")
     @ResponseBody
-    public List<Book> getBooks(){
-        List<Book> bookList=bookService.getAllBooks();
+    public List<Book> getBooks(String bookName){
+        List<Book> bookList=bookService.getAllBooks(bookName);
         return bookList;
     }
     @GetMapping("/getBookById")
