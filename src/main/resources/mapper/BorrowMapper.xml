@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BorrowDao">
+    <resultMap id="borrow" type="com.example.demo.entity.Borrow">
+        <id column="user_id" property="userId"/>
+        <id column="book_id" property="bookId"/>
+        <result column="user_name" property="userName"/>
+        <result column="book_name" property="bookName"/>
+        <result column="borrow_state" property="borrowState"/>
+    </resultMap>
+
+    <select id="getBorrow" resultMap="borrow">
+        select
+        u.user_id,
+        user_name,
+        b.book_id,
+        book_name,
+        borrow_state
+        from book b,borrow,user u
+        where u.user_id=borrow.user_id and b.book_id=borrow.book_id;;
+    </select>
+
+</mapper>
