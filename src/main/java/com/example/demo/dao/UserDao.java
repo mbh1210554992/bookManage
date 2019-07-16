@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface UserDao {
      List<User> getUsers();
-
+     Integer deleteUserById(Integer userName);
 
 }

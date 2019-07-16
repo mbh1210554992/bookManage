@@ -24,4 +24,14 @@ public class UserServiceImpl implements UserService {
 
         return userList;
     }
+
+    @Override
+    public void deleteUserById(Integer userId) {
+        int rows = userDao.deleteUserById(userId);
+        if(rows<=0){
+            System.out.println("删除失败！");
+        }else{
+            System.out.println("删除成功");
+        }
+    }
 }

@@ -4,9 +4,7 @@ import com.example.demo.entity.Borrow;
 import com.example.demo.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,10 +17,12 @@ public class BorrowController {
     public List<Borrow> getBorrow(Integer userId){
         return borrowService.getBorrow(userId);
     }
-    @GetMapping("/updateBorrow")
+    @RequestMapping("/updateBorrow")
     @ResponseBody
-    public void updateBorrow (Integer userId,Integer bookId,Integer borrowState){
-        borrowService.updateBorrow(1613,9,1);
+    public Integer updateBorrow ( Integer userId, Integer bookId, Integer borrowState){
+        System.out.println(userId+" ,"+bookId+", "+borrowState);
+        borrowService.updateBorrow(userId,bookId,borrowState);
+        return 1;
     }
 
 }
