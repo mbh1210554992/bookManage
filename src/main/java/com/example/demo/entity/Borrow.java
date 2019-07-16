@@ -1,11 +1,26 @@
 package com.example.demo.entity;
 
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class Borrow {
     private Integer userId;
     private String userName;
     private Integer bookId;
     private String bookName;
     private Integer borrowState;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date  borrowTime;
+
+    public Date getBorrowTime() {
+        return borrowTime;
+    }
+
+    public void setBorrowTime(Date borrowTime) {
+        this.borrowTime = borrowTime;
+    }
 
     public String getUserName() {
         return userName;
