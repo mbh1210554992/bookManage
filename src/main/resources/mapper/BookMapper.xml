@@ -9,6 +9,9 @@
         <result column="book_isbn" property="bookIsbn"/>
         <result column="book_author" property="bookAuthor"/>
         <result column="book_status" property="bookStatus"/>
+        <result column="book_publisher" property="bookPublisher"/>
+        <result column="book_createtime" property="bookCreateTime"/>
+        <result column="book_info" property="bookInfo"/>
     </resultMap>
 
     <sql id="whereQuery">
