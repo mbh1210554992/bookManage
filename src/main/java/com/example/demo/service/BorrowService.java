@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BorrowService {
     List<Borrow> getBorrow(Integer userId);
+    void updateBorrow(Integer userId,Integer bookId,Integer borrowState);
 }

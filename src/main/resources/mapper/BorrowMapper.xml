@@ -22,4 +22,10 @@
         where u.user_id=borrow.user_id and b.book_id=borrow.book_id;;
     </select>
 
+    <update id="updateBorrow">
+        update borrow
+        set borrow_state = #{borrowState}
+        where book_id = #{bookId} and user_id = #{userId}
+    </update>
+
 </mapper>

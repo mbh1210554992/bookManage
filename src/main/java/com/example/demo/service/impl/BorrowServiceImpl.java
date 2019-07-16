@@ -15,4 +15,14 @@ public class BorrowServiceImpl implements BorrowService {
     public List<Borrow> getBorrow(Integer userId) {
         return borrowDao.getBorrow(userId);
     }
+
+    @Override
+    public void updateBorrow(Integer userId, Integer bookId, Integer borrowState) {
+        Integer rows = borrowDao.updateBorrow(userId,bookId,borrowState);
+        if(rows<=0){
+            System.out.println("更新失败");
+        }else {
+            System.out.println("更新成功");
+        }
+    }
 }

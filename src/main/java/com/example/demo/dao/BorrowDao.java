@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface BorrowDao {
     List<Borrow> getBorrow(Integer userId);
+    Integer updateBorrow(Integer userId,Integer bookId,Integer borrowState);
 }
