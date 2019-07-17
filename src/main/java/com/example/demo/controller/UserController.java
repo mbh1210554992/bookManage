@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -30,15 +31,7 @@ public class UserController {
     }
     @GetMapping("add/user")
     @ResponseBody
-    public String addUser(/*User user*/){
-        User user =new User();
-        user.setAddress("北京");
-        user.setAge(10);
-        user.setId("mnh");
-        user.setPhone(1512312131);
-        user.setSex("男");
-        user.setName("张武");
-        user.setPassword("123456");
+    public String addUser(@RequestBody User user){
         userService.addUser(user);
         return "ok";
     }
