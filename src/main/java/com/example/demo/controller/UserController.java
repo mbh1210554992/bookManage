@@ -29,7 +29,7 @@ public class UserController {
         userService.deleteUserById(userId);
         return null;
     }
-    @GetMapping("add/user")
+    @PostMapping("add/user")
     @ResponseBody
     public String addUser(@RequestBody User user){
         userService.addUser(user);
