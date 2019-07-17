@@ -28,6 +28,20 @@ public class UserController {
         userService.deleteUserById(userId);
         return null;
     }
+    @GetMapping("add/user")
+    @ResponseBody
+    public String addUser(/*User user*/){
+        User user =new User();
+        user.setAddress("北京");
+        user.setAge(10);
+        user.setId("mnh");
+        user.setPhone(1512312131);
+        user.setSex("男");
+        user.setName("张武");
+        user.setPassword("123456");
+        userService.addUser(user);
+        return "ok";
+    }
 
 
 }

@@ -9,5 +9,6 @@ import java.util.List;
 public interface UserDao {
      List<User> getUsers();
      Integer deleteUserById(Integer userId);
+     Integer addUser(User user);
 
 }

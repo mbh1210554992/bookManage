@@ -9,6 +9,7 @@ public class User {
     private Integer phone;
     private Integer count;
     private String password;
+    private Integer role;
 
     public String getPassword() {
         return password;

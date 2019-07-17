@@ -1,7 +1,6 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dao.UserLoginDao;
-import com.example.demo.entity.User;
 import com.example.demo.entity.UserVO;
 import com.example.demo.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ public class UserLoginServiceImpl implements UserLoginService {
         for(UserVO temp : list){
             if(temp.getUserId().equals(userId) && temp.getUserPassword().equals(userPassword)){
                 System.out.println("成功");
+                System.out.println(temp);
                 return temp;
             }
         }

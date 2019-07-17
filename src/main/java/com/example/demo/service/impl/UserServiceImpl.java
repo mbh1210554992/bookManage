@@ -34,4 +34,14 @@ public class UserServiceImpl implements UserService {
             System.out.println("删除成功");
         }
     }
+
+    @Override
+    public void addUser(User user) {
+        int rows= userDao.addUser(user);
+        if(rows<=0){
+            System.out.println("添加成功！");
+        }else{
+            System.out.println("添加成功");
+        }
+    }
 }

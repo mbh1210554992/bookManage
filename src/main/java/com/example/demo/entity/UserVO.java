@@ -5,6 +5,15 @@ public class UserVO {
     private String userPassword;
     private Integer userRole;
 
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "userId='" + userId + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userRole=" + userRole +
+                '}';
+    }
+
     public String getUserId() {
         return userId;
     }
