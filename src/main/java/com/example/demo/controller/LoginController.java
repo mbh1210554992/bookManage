@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.User;
+import com.example.demo.entity.UserVO;
+import com.example.demo.service.UserLoginService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,22 +16,14 @@ import java.util.List;
 @Controller
 public class LoginController {
     @Autowired
-    private UserService userService;
+    private UserLoginService userLoginService;
 
 
     @GetMapping("/login")
     @ResponseBody
-    public User getUsers(String id,String password){
-        List<User> list= userService.getUsers();
-        //System.out.println(id+","+password);
-        for(User temp : list){
-            if(temp.getId().equals(id) && temp.getPassword().equals(password)){
-                System.out.println("成功");
-                return temp;
-            }
-        }
-        System.out.println("失败");
-        return null;
+    public UserVO getUsers(String id, String password){
+
+        return userLoginService.getUsers(id,password);
 
 
     }
