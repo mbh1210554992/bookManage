@@ -19,7 +19,7 @@ public class BorrowController {
     }
     @RequestMapping("/updateBorrow")
     @ResponseBody
-    public Integer updateBorrow ( Integer userId, Integer bookId, Integer borrowState){
+    public Integer updateBorrow (  Integer userId, Integer bookId, Integer borrowState){
         System.out.println(userId+" ,"+bookId+", "+borrowState);
         borrowService.updateBorrow(userId,bookId,borrowState);
         return 1;

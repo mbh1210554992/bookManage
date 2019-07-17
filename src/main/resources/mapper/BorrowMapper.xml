@@ -9,7 +9,7 @@
         <result column="user_name" property="userName"/>
         <result column="book_name" property="bookName"/>
         <result column="borrow_state" property="borrowState"/>
-        <result column="borrow_createtime" property="borrowCreateTime"/>
+        <result column="borrow_time" property="borrowTime"/>
     </resultMap>
 
     <select id="getBorrow" resultMap="borrow">
@@ -19,7 +19,7 @@
         b.book_id,
         book_name,
         borrow_state,
-        borrow_createtime
+        borrow_time
         from book b,borrow,user u
         where u.user_id=borrow.user_id and b.book_id=borrow.book_id;;
     </select>
