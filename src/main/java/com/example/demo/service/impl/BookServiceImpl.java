@@ -24,6 +24,16 @@ public class BookServiceImpl<insertBook> implements BookService {
     }
 
     @Override
+    public void updateBook(Book book) {
+        int rows = bookDao.updateBook(book);
+        if(rows<=0){
+            System.out.println("更新失败");
+        }else {
+            System.out.println("更新成功");
+        }
+    }
+
+    @Override
     public void insertBook(Book book) {
         int rows=bookDao.insertBook(book);
         if(rows<=0){

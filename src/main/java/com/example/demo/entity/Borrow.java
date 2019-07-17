@@ -14,6 +14,18 @@ public class Borrow {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date  borrowTime;
 
+    @Override
+    public String toString() {
+        return "Borrow{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", borrowState=" + borrowState +
+                ", borrowTime=" + borrowTime +
+                '}';
+    }
+
     public Date getBorrowTime() {
         return borrowTime;
     }

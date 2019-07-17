@@ -10,4 +10,5 @@ import java.util.List;
 public interface BorrowDao {
     List<Borrow> getBorrow(@Param("userId") String userId);
     Integer updateBorrow(Integer userId,Integer bookId,Integer borrowState);
+    Integer createBorrow(Borrow borrow);
 }

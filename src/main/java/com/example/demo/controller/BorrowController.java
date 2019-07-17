@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Borrow;
 import com.example.demo.service.BorrowService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,14 @@ public class BorrowController {
         System.out.println(userId+" ,"+bookId+", "+borrowState);
         borrowService.updateBorrow(userId,bookId,borrowState);
         return 1;
+    }
+    @RequestMapping("/createBorrow")
+    @ResponseBody
+    public Integer createBorrow( Borrow borrow){
+        System.out.println(borrow);
+
+        borrowService.createBorrow(borrow);
+        return  1;
     }
 
 }

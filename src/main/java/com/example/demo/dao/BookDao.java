@@ -10,6 +10,7 @@ import java.util.List;
 public interface BookDao {
     List<Book> getAllBooks(@Param("bookName")String bookName);
     Book getBookById(@Param("bookId") Integer bookId);
+    Integer updateBook(Book book);
     Integer insertBook(Book book);
     Integer deleteBookById(@Param("bookId") Integer bookId);
 

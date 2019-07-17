@@ -39,4 +39,9 @@ public class BookController {
          bookService.deleteBookById(bookId);
          return 1;
     }
+    @RequestMapping("/updateBook")
+    public Integer updateBook(Book book){
+        bookService.updateBook(book);
+        return 1;
+    }
 }

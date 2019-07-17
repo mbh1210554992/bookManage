@@ -26,4 +26,14 @@ public class BorrowServiceImpl implements BorrowService {
             System.out.println("更新成功");
         }
     }
+
+    @Override
+    public void createBorrow(Borrow borrow) {
+        Integer rows= borrowDao.createBorrow(borrow);
+        if(rows<=0){
+            System.out.println("插入失败");
+        }else {
+            System.out.println("插入成功");
+        }
+    }
 }

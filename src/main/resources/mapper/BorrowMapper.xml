@@ -32,6 +32,7 @@
         from book b,borrow,user u
         where u.user_id=borrow.user_id and b.book_id=borrow.book_id
         <include refid="chooseQuery"/>
+        order by borrow_state
     </select>
 
     <update id="updateBorrow">
@@ -39,5 +40,10 @@
         set borrow_state = #{borrowState}
         where book_id = #{bookId} and user_id = #{userId}
     </update>
+
+    <insert id="createBorrow">
+        insert into borrow(book_id,user_id,borrow_state,borrow_time)
+        values(#{bookId},#{userId},0,now())
+    </insert>
 
 </mapper>

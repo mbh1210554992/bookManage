@@ -26,7 +26,7 @@
       user_phone,
       user_count,
         user_password
-      from user
+      from user where user_role=1;
     </select>
 
     <delete id="deleteUserById" >
