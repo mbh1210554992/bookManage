@@ -12,6 +12,15 @@
         <result column="borrow_time" property="borrowTime"/>
     </resultMap>
 
+
+    <sql id="chooseQuery">
+        <choose>
+            <when test="userId!=null and userId!=''">
+                and u.user_id = #{userId}
+            </when>
+        </choose>
+    </sql>
+
     <select id="getBorrow" resultMap="borrow">
         select
         u.user_id,
@@ -21,7 +30,8 @@
         borrow_state,
         borrow_time
         from book b,borrow,user u
-        where u.user_id=borrow.user_id and b.book_id=borrow.book_id;;
+        where u.user_id=borrow.user_id and b.book_id=borrow.book_id
+        <include refid="chooseQuery"/>
     </select>
 
     <update id="updateBorrow">

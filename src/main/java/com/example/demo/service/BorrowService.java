@@ -5,6 +5,6 @@ import com.example.demo.entity.Borrow;
 import java.util.List;
 
 public interface BorrowService {
-    List<Borrow> getBorrow(Integer userId);
+    List<Borrow> getBorrow(String userId);
     void updateBorrow(Integer userId,Integer bookId,Integer borrowState);
 }

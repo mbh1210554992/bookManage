@@ -14,7 +14,7 @@ public class BorrowController {
     private BorrowService borrowService;
     @GetMapping("/getBorrow")
     @ResponseBody
-    public List<Borrow> getBorrow(Integer userId){
+    public List<Borrow> getBorrow(String userId){
         return borrowService.getBorrow(userId);
     }
     @RequestMapping("/updateBorrow")

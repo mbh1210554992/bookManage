@@ -12,9 +12,10 @@ public class BorrowServiceImpl implements BorrowService {
     @Autowired
     private BorrowDao borrowDao;
     @Override
-    public List<Borrow> getBorrow(Integer userId) {
+    public List<Borrow> getBorrow(String userId) {
         return borrowDao.getBorrow(userId);
     }
+
 
     @Override
     public void updateBorrow(Integer userId, Integer bookId, Integer borrowState) {
