@@ -18,15 +18,22 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public List<User> getUsers() {
+    public List<User> getUsers(String userId) {
 
-        List<User> userList = userDao.getUsers();
+        List<User> userList = userDao.getUsers(userId);
 
         return userList;
     }
 
     @Override
-    public void deleteUserById(Integer userId) {
+    public List<User> getAdmins(String userId) {
+        List<User> adminList = userDao.getAdmins(userId);
+
+        return adminList;
+    }
+
+    @Override
+    public void deleteUserById(String userId) {
         int rows = userDao.deleteUserById(userId);
         if(rows<=0){
             System.out.println("删除失败！");

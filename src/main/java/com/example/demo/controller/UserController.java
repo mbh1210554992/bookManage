@@ -18,14 +18,22 @@ public class UserController {
 
     @GetMapping("/getUsers")
     @ResponseBody
-    public List<User> getUsers(){
-        List<User> list= userService.getUsers();
+    public List<User> getUsers(String userId){
+        List<User> list= userService.getUsers(userId);
         return list;
     }
 
+    @GetMapping("/getAdmins")
+    @ResponseBody
+    public List<User> getAdmins(String userId){
+        List<User> list= userService.getAdmins(userId);
+        return list;
+    }
+
+
     @PostMapping("/delete/user")
     @ResponseBody
-    public String deleteUserById(Integer userId){
+    public String deleteUserById(String userId){
         userService.deleteUserById(userId);
         return null;
     }

@@ -17,6 +17,15 @@
         <result column="user_role" property="role"/>
     </resultMap>
 
+    <sql id="chooseQuery">
+        <choose>
+            <when test="userId!=null and userId!=''">
+                and user_id = #{userId}
+            </when>
+        </choose>
+    </sql>
+
+
     <select id="getUsers" resultMap="user">
       select
       user_id,
@@ -27,7 +36,22 @@
       user_phone,
       user_count,
         user_password
-      from user where user_role=1;
+      from user where user_role=1
+      <include refid="chooseQuery"/>;
+    </select>
+
+    <select id="getAdmins" resultMap="user">
+      select
+      user_id,
+      user_name,
+      user_sex,
+      user_age,
+      user_address,
+      user_phone,
+      user_count,
+        user_password
+      from user where user_role=2
+      <include refid="chooseQuery"/>;
     </select>
 
     <delete id="deleteUserById" >

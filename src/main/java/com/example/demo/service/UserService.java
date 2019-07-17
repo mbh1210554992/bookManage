@@ -5,7 +5,8 @@ import com.example.demo.entity.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> getUsers();
-    void deleteUserById(Integer userId);
+    List<User> getUsers(String userId);
+    List<User> getAdmins(String userId);
+    void deleteUserById(String userId);
     void addUser(User user);
 }
