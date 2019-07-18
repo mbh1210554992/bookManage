@@ -76,5 +76,10 @@
         book_publisher = #{bookPublisher}
         where book_id = #{bookId}
     </update>
+    <update id="borrowBook">
+        update book
+        set book_status = 1
+        where book_id = #{bookId}
+    </update>
 
 </mapper>

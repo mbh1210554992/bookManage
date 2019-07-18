@@ -49,4 +49,12 @@ public class BookServiceImpl<insertBook> implements BookService {
             throw new ServiceException("删除失败");
         }
     }
+
+    @Override
+    public void borrowBook(Integer bookId) {
+        int rows=bookDao.borrowBook(bookId);
+        if(rows<=0) {
+            throw new ServiceException("借阅失败");
+        }
+    }
 }

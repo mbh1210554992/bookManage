@@ -16,8 +16,9 @@ public class BorrowController {
     private BorrowService borrowService;
     @GetMapping("/getBorrow")
     @ResponseBody
-    public List<Borrow> getBorrow(String userId){
-        return borrowService.getBorrow(userId);
+    public JsonResult getBorrow(String userId){
+        List<Borrow > list=borrowService.getBorrow(userId);
+        return new JsonResult(list);
     }
     @RequestMapping("/updateBorrow")
     @ResponseBody
@@ -28,7 +29,7 @@ public class BorrowController {
     }
     @RequestMapping("/createBorrow")
     @ResponseBody
-    public JsonResult createBorrow( Borrow borrow){
+    public JsonResult createBorrow(@RequestBody Borrow borrow){
         System.out.println(borrow);
 
         borrowService.createBorrow(borrow);

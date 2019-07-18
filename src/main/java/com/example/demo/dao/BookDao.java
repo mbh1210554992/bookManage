@@ -13,5 +13,6 @@ public interface BookDao {
     Integer updateBook(Book book);
     Integer insertBook(Book book);
     Integer deleteBookById(@Param("bookId") Integer bookId);
+    Integer borrowBook(@Param("bookId") Integer bookId);
 
 }

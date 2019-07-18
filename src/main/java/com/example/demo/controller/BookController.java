@@ -46,4 +46,11 @@ public class BookController {
         bookService.updateBook(book);
         return new JsonResult("更新成功");
     }
+
+    @RequestMapping("/borrowBook")
+    @ResponseBody
+    public JsonResult borrowBook(Integer bookId){
+        bookService.borrowBook(bookId);
+        return new JsonResult("借阅待审核");
+    }
 }
