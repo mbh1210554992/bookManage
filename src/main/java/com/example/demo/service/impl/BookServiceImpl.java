@@ -62,4 +62,12 @@ public class BookServiceImpl<insertBook> implements BookService {
             throw new ServiceException("借阅失败");
         }
     }
+
+    @Override
+    public void returnBook(Integer bookId) {
+        int rows=bookDao.returnBook(bookId);
+        if(rows<=0) {
+            throw new ServiceException("还书失败");
+        }
+    }
 }

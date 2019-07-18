@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/book")
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -53,6 +54,12 @@ public class BookController {
     public JsonResult borrowBook(Integer bookId){
         bookService.borrowBook(bookId);
         return new JsonResult("借阅待审核");
+    }
+    @RequestMapping("/returnBook")
+    @ResponseBody
+    public JsonResult returnBook(Integer bookId){
+        bookService.returnBook(bookId);
+        return new JsonResult("还书成功");
     }
 
     @RequestMapping("/get/passBook")

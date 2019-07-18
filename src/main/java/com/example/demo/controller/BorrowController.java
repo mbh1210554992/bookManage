@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/borrow")
 public class BorrowController {
     @Autowired
     private BorrowService borrowService;

@@ -96,5 +96,10 @@
         set book_status = 1
         where book_id = #{bookId}
     </update>
+    <update id="returnBook">
+        update book
+        set book_status = 0
+        where book_id = #{bookId}
+    </update>
 
 </mapper>
