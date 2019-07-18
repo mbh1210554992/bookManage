@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.JsonResult;
 import com.example.demo.entity.Book;
 import com.example.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,34 +15,35 @@ public class BookController {
     private BookService bookService;
     @GetMapping("/getBooks")
     @ResponseBody
-    public List<Book> getBooks( String bookName){
+    public JsonResult getBooks(String bookName){
 
         List<Book> bookList=bookService.getAllBooks(bookName);
-        return bookList;
+        return new JsonResult(bookList);
     }
     @GetMapping("/getBookById")
     @ResponseBody
-    public Book getBookById(@RequestBody Integer bookId){
+    public JsonResult getBookById(@RequestBody Integer bookId){
         Book book=bookService.getBookById(bookId);
-        return book;
+        return new JsonResult(book);
     }
 
     @PostMapping("/addBook")
     @ResponseBody
-    public Integer insertBook(@RequestBody Book book){
+    public JsonResult insertBook(@RequestBody Book book){
         System.out.println("插入图书");
         bookService.insertBook(book);
-        return 1;
+        return new JsonResult("插入成功");
     }
     @RequestMapping("/deleteBookById")
     @ResponseBody
-    public Integer deleteBookById(@RequestParam() Integer bookId){
+    public JsonResult deleteBookById(@RequestParam() Integer bookId){
          bookService.deleteBookById(bookId);
-         return 1;
+         return new JsonResult("删除成功");
     }
     @RequestMapping("/updateBook")
-    public Integer updateBook(@RequestBody Book book){
+    @ResponseBody
+    public JsonResult updateBook(@RequestBody Book book){
         bookService.updateBook(book);
-        return 1;
+        return new JsonResult("更新成功");
     }
 }

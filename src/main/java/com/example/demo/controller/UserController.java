@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.JsonResult;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,30 +19,30 @@ public class UserController {
 
     @GetMapping("/getUsers")
     @ResponseBody
-    public List<User> getUsers(String userId){
+    public JsonResult getUsers(String userId){
         List<User> list= userService.getUsers(userId);
-        return list;
+        return new JsonResult(list);
     }
 
     @GetMapping("/getAdmins")
     @ResponseBody
-    public List<User> getAdmins(String userId){
+    public JsonResult getAdmins(String userId){
         List<User> list= userService.getAdmins(userId);
-        return list;
+        return new JsonResult(list);
     }
 
 
     @PostMapping("/delete/user")
     @ResponseBody
-    public String deleteUserById(String userId){
+    public JsonResult deleteUserById(String userId){
         userService.deleteUserById(userId);
-        return null;
+        return new JsonResult("删除成功");
     }
     @PostMapping("add/user")
     @ResponseBody
-    public String addUser(@RequestBody User user){
+    public JsonResult addUser(@RequestBody User user){
         userService.addUser(user);
-        return "ok";
+        return new JsonResult("添加成功");
     }
 
 
