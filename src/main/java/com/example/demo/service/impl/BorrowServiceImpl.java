@@ -18,8 +18,8 @@ public class BorrowServiceImpl implements BorrowService {
     }
 
     @Override
-    public List<Borrow> getPassBorrow(String userId, Integer bookId) {
-        return borrowDao.getPassBorrow(userId,bookId);
+    public List<Borrow> getPassBorrow(String userId) {
+        return borrowDao.getPassBorrow(userId);
     }
 
 

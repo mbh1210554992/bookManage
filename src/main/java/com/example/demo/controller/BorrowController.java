@@ -37,8 +37,8 @@ public class BorrowController {
 
     @RequestMapping("/get/passBorrow")
     @ResponseBody
-    public JsonResult getPassBorrow(String userId,Integer bookId){
-        List<Borrow> list=borrowService.getPassBorrow(userId,bookId);
+    public JsonResult getPassBorrow(String userId){
+        List<Borrow> list=borrowService.getPassBorrow(userId);
         return new JsonResult(list);
     }
 
