@@ -13,15 +13,12 @@ public class UserLoginServiceImpl implements UserLoginService {
     UserLoginDao userLoginDao;
     @Override
     public UserVO getUsers(String userId, String userPassword) {
-        List<UserVO> list= userLoginDao.getUsers();
+        UserVO user= userLoginDao.getUsers(userId,userPassword);
         //System.out.println(id+","+password);
-        for(UserVO temp : list){
-            if(temp.getUserId().equals(userId) && temp.getUserPassword().equals(userPassword)){
-                System.out.println("成功");
-                System.out.println(temp);
-                return temp;
-            }
-        }
+      if(null!=user){
+          System.out.println("登陆成功");
+          return user;
+      }
         System.out.println("失败");
         return null;
     }
