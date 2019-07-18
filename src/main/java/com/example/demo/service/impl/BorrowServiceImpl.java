@@ -17,9 +17,14 @@ public class BorrowServiceImpl implements BorrowService {
         return borrowDao.getBorrow(userId);
     }
 
+    @Override
+    public List<Borrow> getPassBorrow(String userId, Integer bookId) {
+        return borrowDao.getPassBorrow(userId,bookId);
+    }
+
 
     @Override
-    public void updateBorrow(Integer userId, Integer bookId, Integer borrowState) {
+    public void updateBorrow(String userId, Integer bookId, Integer borrowState) {
         Integer rows = borrowDao.updateBorrow(userId,bookId,borrowState);
         if(rows<=0){
             throw new ServiceException("更新失败");
