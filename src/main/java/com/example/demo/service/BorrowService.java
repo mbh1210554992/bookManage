@@ -8,4 +8,5 @@ public interface BorrowService {
     List<Borrow> getBorrow(String userId);
     void updateBorrow(String userId,Integer bookId,Integer borrowState);
     void createBorrow(Borrow borrow);
+    void deleteBorrow(String userId,Integer bookId);
 }

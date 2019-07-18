@@ -20,7 +20,7 @@ public class BorrowServiceImpl implements BorrowService {
 
     @Override
     public void updateBorrow(String userId, Integer bookId, Integer borrowState) {
-        Integer rows = borrowDao.updateBorrow(userId,bookId,borrowState);
+        int rows = borrowDao.updateBorrow(userId,bookId,borrowState);
         if(rows<=0){
             throw new ServiceException("更新失败");
         }
@@ -28,9 +28,17 @@ public class BorrowServiceImpl implements BorrowService {
 
     @Override
     public void createBorrow(Borrow borrow) {
-        Integer rows= borrowDao.createBorrow(borrow);
+        int rows= borrowDao.createBorrow(borrow);
         if(rows<=0){
             throw new ServiceException("插入失败");
+        }
+    }
+
+    @Override
+    public void deleteBorrow(String userId, Integer bookId) {
+        int rows=borrowDao.deleteBorrow(userId,bookId);
+        if(rows<=0){
+            throw new ServiceException("还书失败");
         }
     }
 }

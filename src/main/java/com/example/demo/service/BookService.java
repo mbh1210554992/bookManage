@@ -13,5 +13,4 @@ public interface BookService {
     void insertBook(Book book);
     void deleteBookById(Integer bookId);
     void borrowBook(Integer bookId);
-
 }

@@ -48,4 +48,9 @@
         values(#{bookId},#{userId},0,now())
     </insert>
 
+    <delete id="deleteBorrow">
+        delete from borrow
+        where book_id = #{bookId} and user_id = #{userId}
+    </delete>
+
 </mapper>
