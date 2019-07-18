@@ -30,7 +30,7 @@ public class UserController {
     }
 
 
-    @PostMapping("/delete/user")
+    @GetMapping("/delete/user")
     @ResponseBody
     public JsonResult deleteUserById(String userId){
         userService.deleteUserById(userId);
@@ -41,6 +41,13 @@ public class UserController {
     public JsonResult addUser(@RequestBody User user){
         userService.addUser(user);
         return new JsonResult("添加成功");
+    }
+
+    @PostMapping("add/admin")
+    @ResponseBody
+    public JsonResult addAdmin(@RequestBody User user){
+        userService.addAdmin(user);
+        return new JsonResult("添加管理员成功");
     }
 
 

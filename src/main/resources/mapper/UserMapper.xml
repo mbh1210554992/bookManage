@@ -82,4 +82,27 @@
                 )
     </insert>
 
+    <insert id="addAdmin">
+        insert into
+        user(user_id,
+             user_name,
+             user_sex,
+             user_age,
+             user_address,
+             user_phone,
+             user_count,
+             user_role,
+             user_password)
+        values(#{id},
+               #{name},
+               #{sex},
+               #{age},
+               #{address},
+               #{phone},
+                0,
+                2,
+               #{password}
+                )
+    </insert>
+
 </mapper>

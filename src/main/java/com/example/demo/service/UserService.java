@@ -9,4 +9,5 @@ public interface UserService {
     List<User> getAdmins(String userId);
     void deleteUserById(String userId);
     void addUser(User user);
+    void addAdmin(User user);
 }

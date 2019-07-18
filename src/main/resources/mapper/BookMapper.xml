@@ -28,6 +28,7 @@
                 book_info, book_publisher, book_createtime
         from book
         <include refid="whereQuery"/>
+        order by book_status
     </select>
 
     <select id="getBookById" resultMap="Book">

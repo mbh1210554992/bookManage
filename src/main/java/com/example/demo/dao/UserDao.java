@@ -12,5 +12,6 @@ public interface UserDao {
      List<User> getAdmins(@Param("userId") String userId);
      Integer deleteUserById(@Param("userId")String userId);
      Integer addUser(User user);
+     Integer addAdmin(User user);
 
 }

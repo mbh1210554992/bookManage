@@ -48,4 +48,12 @@ public class UserServiceImpl implements UserService {
             throw new ServiceException("添加失败");
         }
     }
+
+    @Override
+    public void addAdmin(User user) {
+        int rows= userDao.addAdmin(user);
+        if(rows<=0){
+            throw new ServiceException("添加失败");
+        }
+    }
 }
