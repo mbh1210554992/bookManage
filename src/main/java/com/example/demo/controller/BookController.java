@@ -40,7 +40,7 @@ public class BookController {
          return 1;
     }
     @RequestMapping("/updateBook")
-    public Integer updateBook(Book book){
+    public Integer updateBook(@RequestBody Book book){
         bookService.updateBook(book);
         return 1;
     }

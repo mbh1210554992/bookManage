@@ -13,6 +13,6 @@
     <select id="getUsers" resultMap="userLogin">
         select user_id,user_password,user_role
         from user
-        where userId=#{userId} and userName=#{userPassword};
+        where user_id=#{userId} and user_password=#{userPassword};
     </select>
 </mapper>
