@@ -17,11 +17,6 @@ public class BorrowServiceImpl implements BorrowService {
         return borrowDao.getBorrow(userId);
     }
 
-    @Override
-    public List<Borrow> getPassBorrow(String userId) {
-        return borrowDao.getPassBorrow(userId);
-    }
-
 
     @Override
     public void updateBorrow(String userId, Integer bookId, Integer borrowState) {

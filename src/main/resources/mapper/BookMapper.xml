@@ -38,6 +38,21 @@
         where book_id=#{bookId}
     </select>
 
+    <select id="getPassBook" resultMap="Book">
+        select
+        b.book_id,
+        book_name,
+        book_isbn,
+        book_author,
+        book_status,
+        book_publisher ,
+        book_info,
+        book_createtime
+        from book b,borrow,user u
+        where u.user_id=borrow.user_id and b.book_id=borrow.book_id and borrow_state=1
+        and borrow.user_id=#{userId}
+    </select>
+
     <insert id="insertBook">
         insert into
         book

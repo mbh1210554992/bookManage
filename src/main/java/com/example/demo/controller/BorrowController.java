@@ -35,11 +35,6 @@ public class BorrowController {
         return  new JsonResult("操作成功");
     }
 
-    @RequestMapping("/get/passBorrow")
-    @ResponseBody
-    public JsonResult getPassBorrow(String userId){
-        List<Borrow> list=borrowService.getPassBorrow(userId);
-        return new JsonResult(list);
-    }
+
 
 }

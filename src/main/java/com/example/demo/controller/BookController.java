@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.common.JsonResult;
 import com.example.demo.entity.Book;
+import com.example.demo.entity.Borrow;
 import com.example.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,5 +53,12 @@ public class BookController {
     public JsonResult borrowBook(Integer bookId){
         bookService.borrowBook(bookId);
         return new JsonResult("借阅待审核");
+    }
+
+    @RequestMapping("/get/passBook")
+    @ResponseBody
+    public JsonResult getPassBook(String userId){
+        List<Book> list=bookService.getPassBook(userId);
+        return new JsonResult(list);
     }
 }

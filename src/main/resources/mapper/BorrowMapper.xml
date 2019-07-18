@@ -35,17 +35,7 @@
         order by borrow_state
     </select>
 
-    <select id="getPassBorrow" resultMap="borrow">
-        select
-        u.user_id,
-        user_name,
-        b.book_id,
-        book_name,
-        borrow_time
-        from book b,borrow,user u
-        where u.user_id=borrow.user_id and b.book_id=borrow.book_id and borrow_state=1
-                and borrow.user_id=#{userId}
-    </select>
+
 
     <update id="updateBorrow">
         update borrow

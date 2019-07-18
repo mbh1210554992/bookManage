@@ -25,6 +25,11 @@ public class BookServiceImpl<insertBook> implements BookService {
     }
 
     @Override
+    public List<Book> getPassBook(String userId) {
+        return bookDao.getPassBook(userId);
+    }
+
+    @Override
     public void updateBook(Book book) {
         int rows = bookDao.updateBook(book);
         if(rows<=0){
