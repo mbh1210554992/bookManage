@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.common.ServiceException;
 import com.example.demo.dao.UserLoginDao;
 import com.example.demo.entity.UserVO;
 import com.example.demo.service.UserLoginService;
@@ -15,11 +16,10 @@ public class UserLoginServiceImpl implements UserLoginService {
     public UserVO getUsers(String userId, String userPassword) {
         UserVO user= userLoginDao.getUsers(userId,userPassword);
         //System.out.println(id+","+password);
-      if(null!=user){
-          System.out.println("登陆成功");
-          return user;
+      if(null==user){
+          throw new ServiceException("插入失败");
       }
-        System.out.println("失败");
-        return null;
+        System.out.println("成功");
+        return user;
     }
 }

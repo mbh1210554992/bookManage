@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.common.ServiceException;
 import com.example.demo.dao.BorrowDao;
 import com.example.demo.entity.Borrow;
 import com.example.demo.service.BorrowService;
@@ -21,9 +22,7 @@ public class BorrowServiceImpl implements BorrowService {
     public void updateBorrow(Integer userId, Integer bookId, Integer borrowState) {
         Integer rows = borrowDao.updateBorrow(userId,bookId,borrowState);
         if(rows<=0){
-            System.out.println("更新失败");
-        }else {
-            System.out.println("更新成功");
+            throw new ServiceException("更新失败");
         }
     }
 
@@ -31,9 +30,7 @@ public class BorrowServiceImpl implements BorrowService {
     public void createBorrow(Borrow borrow) {
         Integer rows= borrowDao.createBorrow(borrow);
         if(rows<=0){
-            System.out.println("插入失败");
-        }else {
-            System.out.println("插入成功");
+            throw new ServiceException("插入失败");
         }
     }
 }

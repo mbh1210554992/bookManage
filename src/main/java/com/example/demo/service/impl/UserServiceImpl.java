@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 
 
+import com.example.demo.common.ServiceException;
 import com.example.demo.dao.UserDao;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
@@ -36,9 +37,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(String userId) {
         int rows = userDao.deleteUserById(userId);
         if(rows<=0){
-            System.out.println("删除失败！");
-        }else{
-            System.out.println("删除成功");
+            throw new ServiceException("删除失败");
         }
     }
 
@@ -46,9 +45,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) {
         int rows= userDao.addUser(user);
         if(rows<=0){
-            System.out.println("添加成功！");
-        }else{
-            System.out.println("添加成功");
+            throw new ServiceException("添加失败");
         }
     }
 }
