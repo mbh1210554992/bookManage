@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public class Borrow {
-    private Integer userId;
+    private String userId;
     private String userName;
     private Integer bookId;
     private String bookName;
@@ -42,11 +42,11 @@ public class Borrow {
         this.userName = userName;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

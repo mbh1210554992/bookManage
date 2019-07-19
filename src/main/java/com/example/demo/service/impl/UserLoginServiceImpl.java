@@ -7,7 +7,6 @@ import com.example.demo.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class UserLoginServiceImpl implements UserLoginService {
     @Autowired
@@ -17,9 +16,9 @@ public class UserLoginServiceImpl implements UserLoginService {
         UserVO user= userLoginDao.getUsers(userId,userPassword);
         //System.out.println(id+","+password);
       if(null==user){
-          throw new ServiceException("插入失败");
+          throw new ServiceException("登录失败");
       }
-        System.out.println("成功");
+        //System.out.println("成功");
         return user;
     }
 }
